@@ -7,4 +7,4 @@ HedEditor gives me a few tools to help. Simply hex editing a file shouldn't caus
 
 With reasonable confidence, we can look at some of the attributes of the file and tell if it's encrypted or compressed, we can look through the raw bytes and see if there are any human readable strings referencing suspicious stuff like SHELLEX, BIN or HTTP. I see those frequently in stuff that gets in. We have a few buttons that will jump to those positions in the file if I want to eyeball them. Drag and drop works for Outlook attachments but not from explorer and I need to fix that.
 
-<img src="HEdit.png" width="737px"></img> 
+<img src="HEdit.png" width="1155px"></img> 
