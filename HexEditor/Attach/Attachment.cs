@@ -42,13 +42,10 @@ namespace HexEditor.Attach
                 MemoryStream ms = e.Data.GetData("FileContents", true) as MemoryStream;
 
                 byte[] fileBytes = new byte[ms.Length];
-
                 ms.Position = 0;
                 ms.Read(fileBytes, 0, (int)ms.Length);
-
                 FileStream fs = new FileStream(theFile, FileMode.Create);
                 fs.Write(fileBytes, 0, (int)fileBytes.Length);
-
                 fs.Close();
 
                 return theFile;

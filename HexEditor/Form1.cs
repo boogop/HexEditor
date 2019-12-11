@@ -28,43 +28,6 @@ namespace HexEditor
             openFileDialog1.RestoreDirectory = false;
         }
 
-        private void panel1_DragEnter(object sender, DragEventArgs e)
-        {
-            e.Effect = DragDropEffects.Copy;
-        }
-
-        private void panel1_DragDrop(object sender, DragEventArgs e)
-        {
-            lblStatus.Text = "Processing";
-            Application.DoEvents();
-
-            string theFile = "";
-            try
-            {
-                Attach.Attachment a = new Attach.Attachment();
-                theFile = a.getOutlookAttachment(e);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-                return;
-            }
-
-            lblStatus.Text = "Reading File";
-            Application.DoEvents();
-
-            try
-            {
-                openFile(theFile);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-
-            lblStatus.Text = "Ready";
-            Application.DoEvents();
-        }
 
         #region methods
 
@@ -235,6 +198,47 @@ namespace HexEditor
 
 
         #endregion
+       
+        
+        #region events
+
+        private void panel1_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
+        }
+
+        private void panel1_DragDrop(object sender, DragEventArgs e)
+        {
+            lblStatus.Text = "Processing";
+            Application.DoEvents();
+
+            string theFile = "";
+            try
+            {
+                Attach.Attachment a = new Attach.Attachment();
+                theFile = a.getOutlookAttachment(e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return;
+            }
+
+            lblStatus.Text = "Reading File";
+            Application.DoEvents();
+
+            try
+            {
+                openFile(theFile);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+            lblStatus.Text = "Ready";
+            Application.DoEvents();
+        }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -273,5 +277,10 @@ namespace HexEditor
         {
             findText("shell");
         }
+
+        #endregion
+
+
+
     }
 }
